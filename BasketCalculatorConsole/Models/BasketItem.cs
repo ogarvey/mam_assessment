@@ -1,3 +1,5 @@
+using BasketCalculatorConsole.Helpers;
+
 namespace BasketCalculatorConsole.Models
 {
   public class BasketItem
@@ -7,7 +9,7 @@ namespace BasketCalculatorConsole.Models
     public decimal Price { get; set; }
     public decimal PriceWithTax
     {
-      get { return 0.0m; }
+      get { return (Price * TaxHelper.CalculateTaxRate(Name)) / 100; }
     }
 
   }
