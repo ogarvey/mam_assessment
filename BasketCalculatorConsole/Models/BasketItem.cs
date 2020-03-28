@@ -9,7 +9,14 @@ namespace BasketCalculatorConsole.Models
     public decimal Price { get; set; }
     public decimal PriceWithTax
     {
-      get { return (Price * TaxHelper.CalculateTaxRate(Name)) / 100; }
+      get
+      {
+        var rate = TaxHelper.CalculateTaxRate(Name);
+        var tax = ((Price * rate) / 100.0m);
+        // https://stackoverflow.com/a/4760145 - How to round to nearest 0.05
+        tax = decimal.Ceiling((tax / 0.05m)) * 0.05m;
+        return Price + tax;
+      }
     }
 
   }

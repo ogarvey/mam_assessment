@@ -21,7 +21,7 @@ namespace BasketCalculatorConsole.Helpers
         new BasketItem() {Count = 1, Name = "Box of imported chocolates", Price = 11.25m }
     };
 
-    public static List<BasketItem> GetReceiptData(int basketId)
+    public static List<BasketItem> GetBasketData(int basketId)
     {
       switch (basketId)
       {
